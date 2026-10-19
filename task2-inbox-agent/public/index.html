@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Inbox Agent · AI Tech Consultant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #07090e;
+      --bg-secondary: #0d121f;
+      --bg-card: rgba(18, 24, 40, 0.75);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(14, 165, 233, 0.35);
+      --accent: #0ea5e9;
+      --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #8b5cf6 100%);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+    }
+
+    .container {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 22px;
+    }
+
+    .logo-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.35);
+    }
+
+    .logo-text h1 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14, 165, 233, 0.12);
+      border: 1px solid rgba(14, 165, 233, 0.25);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Main Tri-Pane Layout */
+    .inbox-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr 380px;
+      gap: 20px;
+      height: calc(100vh - 120px);
+    }
+
+    .pane {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .pane-header {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 12px;
+    }
+
+    /* Left Pane: Email List */
+    .filter-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .filter-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 9999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .filter-chip.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .email-list {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .email-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .email-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--border-glow);
+    }
+
+    .email-item.active {
+      background: rgba(14, 165, 233, 0.12);
+      border-color: var(--accent);
+    }
+
+    .email-item-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .email-item-subject {
+      font-size: 12px;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .email-item-snippet {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.4;
+    }
+
+    /* Badges */
+    .badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .badge-urgent { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.4); }
+    .badge-high { background: rgba(245, 158, 11, 0.2); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.4); }
+    .badge-normal { background: rgba(14, 165, 233, 0.15); color: var(--accent); }
+    .badge-low { background: rgba(100, 116, 139, 0.2); color: var(--text-muted); }
+
+    /* Center Pane: Email Detail & Draft Generator */
+    .email-detail-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      gap: 16px;
+    }
+
+    .incoming-email-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .draft-workspace {
+      background: rgba(14, 165, 233, 0.04);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .draft-textarea {
+      width: 100%;
+      height: 220px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.6;
+      padding: 12px;
+      resize: vertical;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      align-items: center;
+    }
+
+    .btn-action {
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-send-as-is {
+      background: var(--success);
+      color: white;
+    }
+
+    .btn-send-as-is:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
+
+    .btn-edit-send {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-edit-send:hover {
+      background: #0284c7;
+    }
+
+    /* Right Pane: Autonomy & Continuous Learning */
+    .autonomy-panel {
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .streak-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 9999px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent-gradient);
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+
+    .rule-card {
+      background: rgba(14, 165, 233, 0.05);
+      border-left: 3px solid var(--accent);
+      padding: 10px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-badge">
+        <div class="logo-icon">📬</div>
+        <div class="logo-text">
+          <h1>The Inbox Agent</h1>
+          <p>Replies that get better with every email sent · Self-Improving Autonomy</p>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button class="filter-chip" onclick="simulateTwentyStreak()" style="background: rgba(16, 185, 129, 0.2); color: var(--success); border-color: rgba(16, 185, 129, 0.4); font-weight: 700;">
+          🚀 Demo 20-Streak Autonomy Unlock
+        </button>
+        <button class="filter-chip" onclick="simulateCircuitBreaker()" style="background: rgba(239, 68, 68, 0.15); color: var(--danger); border-color: rgba(239, 68, 68, 0.4); font-weight: 700;">
+          ⚡ Trip Circuit Breaker
+        </button>
+        <div class="status-pill">
+          <span id="active-category-pill">Self-Improving · Strict Human-in-the-Loop</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="inbox-grid">
+      <!-- LEFT PANE: Emails Triage -->
+      <div class="pane">
+        <div class="pane-header">
+          <span>Customer Inbox (<span id="total-email-count">52</span>)</span>
+          <span style="font-size: 11px; color: var(--text-muted);">Real Scenarios</span>
+        </div>
+
+        <div class="filter-bar">
+          <span class="filter-chip active" onclick="filterCategory('')">All</span>
+          <span class="filter-chip" onclick="filterCategory('HOW_TO')">How-To</span>
+          <span class="filter-chip" onclick="filterCategory('REFUND_CANCELLATION')">Refunds</span>
+          <span class="filter-chip" onclick="filterCategory('NEW_PROJECT')">New Projects</span>
+          <span class="filter-chip" onclick="filterCategory('QUOTE_REQUEST')">Quotes</span>
+          <span class="filter-chip" onclick="filterCategory('COMPLAINT_OUTAGE')">Outages</span>
+        </div>
+
+        <div class="email-list" id="email-list-container">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- CENTER PANE: Email Detail & Grounded Draft Workspace -->
+      <div class="pane">
+        <div class="pane-header">
+          <span>Triage & Grounded Reply Workspace</span>
+          <span id="email-status-badge" class="badge badge-normal">PENDING REVIEW</span>
+        </div>
+
+        <div class="email-detail-container" id="email-workspace-container">
+          <!-- Loaded dynamically -->
+          <p style="color: var(--text-muted); text-align: center; margin-top: 150px;">
+            Select an email on the left to review incoming inquiry and generate a Knowledge-Brain-grounded draft.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT PANE: Autonomy & Learning Dashboard -->
+      <div class="pane">
+        <div class="pane-header">
+          <span>Autonomy & Learning Engine</span>
+          <span style="font-size: 11px; color: var(--accent);">Threshold: 20</span>
+        </div>
+
+        <div class="autonomy-panel">
+          <div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">
+              Streak towards Autonomous Sending
+            </div>
+            <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.4;">
+              Once 20 consecutive drafts of the same kind are sent without human editing (edit distance &lt; 5%), that category unlocks safe autonomous sending.
+            </p>
+            <div id="autonomy-rules-container" style="display: flex; flex-direction: column; gap: 10px;">
+              <!-- Loaded dynamically -->
+            </div>
+          </div>
+
+          <div style="border-top: 1px solid var(--border-color); padding-top: 14px;">
+            <div style="font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">
+              Learned Preferences & Policy Rules
+            </div>
+            <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px;">
+              Automatically extracted from human edits and injected into future drafts:
+            </p>
+            <div id="learned-rules-container">
+              <div class="rule-card">
+                • Format step-by-step UI dashboard navigation paths with explicit bold bullet points.
+              </div>
+              <div class="rule-card">
+                • Clarify that refunds reflect in 3-5 business days via Stripe and transaction logs are updated.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let emails = [];
+    let activeEmail = null;
+    let currentCategoryFilter = '';
+
+    async function loadEmails() {
+      const url = currentCategoryFilter ? `/api/emails?category=${currentCategoryFilter}` : '/api/emails';
+      const res = await fetch(url);
+      emails = await res.json();
+      document.getElementById('total-email-count').innerText = emails.length;
+      renderEmailList();
+      if (emails.length > 0 && !activeEmail) {
+        selectEmail(emails[0].id);
+      }
+    }
+
+    function renderEmailList() {
+      const cont = document.getElementById('email-list-container');
+      cont.innerHTML = emails.map(e => `
+        <div class="email-item ${activeEmail && activeEmail.id === e.id ? 'active' : ''}" onclick="selectEmail('${e.id}')">
+          <div class="email-item-header">
+            <span>${e.fromName}</span>
+            <span class="badge badge-${e.intent.urgency.toLowerCase()}">${e.intent.urgency}</span>
+          </div>
+          <div class="email-item-subject">${e.subject}</div>
+          <div class="email-item-snippet">${e.body}</div>
+          <div style="margin-top: 6px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 10px; color: var(--accent); font-weight: 600;">${e.intent.subcategory}</span>
+            <span style="font-size: 10px; color: var(--text-muted);">${e.status.replace(/_/g, ' ')}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCategory(cat) {
+      currentCategoryFilter = cat;
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+      loadEmails();
+    }
+
+    async function selectEmail(id) {
+      const res = await fetch(`/api/emails/${id}`);
+      activeEmail = await res.json();
+      renderEmailList();
+      renderWorkspace();
+    }
+
+    async function renderWorkspace() {
+      if (!activeEmail) return;
+
+      const ws = document.getElementById('email-workspace-container');
+      const badge = document.getElementById('email-status-badge');
+      badge.innerText = activeEmail.status.replace(/_/g, ' ');
+
+      // Automatically generate draft if not yet assigned
+      let draft = activeEmail.assignedDraft;
+      if (!draft) {
+        ws.innerHTML = '<p style="color: var(--accent); text-align: center; margin-top: 150px;">Consulting Task 1 Knowledge Brain API and generating grounded draft...</p>';
+        const dRes = await fetch(`/api/emails/${activeEmail.id}/draft`, { method: 'POST' });
+        draft = await dRes.json();
+        activeEmail.assignedDraft = draft;
+      }
+
+      ws.innerHTML = `
+        <div class="incoming-email-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <div>
+              <span style="font-weight: 700; color: #fff;">${activeEmail.fromName}</span>
+              <span style="font-size: 12px; color: var(--text-muted);">&lt;${activeEmail.fromEmail}&gt;</span>
+            </div>
+            <span class="badge badge-${activeEmail.intent.urgency.toLowerCase()}">${activeEmail.intent.urgency} Priority</span>
+          </div>
+          <h3 style="font-size: 14px; margin-bottom: 8px; color: #fff;">${activeEmail.subject}</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">${activeEmail.body}</p>
+        </div>
+
+        <div class="draft-workspace">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 12px; font-weight: 700; color: var(--accent);">
+              🤖 Proposed Draft (Grounded via Task 1 Knowledge API)
+            </span>
+            <span style="font-size: 11px; color: var(--text-muted);">
+              Confidence: ${Math.round(draft.confidenceScore * 100)}%
+            </span>
+          </div>
+
+          <textarea id="draft-editor" class="draft-textarea">${draft.body}</textarea>
+
+          <div style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">
+            💡 ${draft.reasoning}
+          </div>
+
+          <div class="btn-group">
+            <button class="btn-action btn-send-as-is" onclick="submitAction('SEND_AS_IS')">
+              ✅ Send in 1-Click (Unchanged +1 Streak)
+            </button>
+            <button class="btn-action btn-edit-send" onclick="submitAction('EDIT_AND_SEND')">
+              ✏️ Send Edits (Learns New Rule)
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    async function submitAction(actionType) {
+      if (!activeEmail) return;
+      const editorText = document.getElementById('draft-editor').value;
+
+      const res = await fetch(`/api/emails/${activeEmail.id}/action`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: actionType,
+          finalSentText: editorText
+        })
+      });
+
+      const result = await res.json();
+      activeEmail = result.email;
+      loadAutonomyStatus();
+      loadLearnings();
+      loadEmails();
+
+      alert(
+        actionType === 'SEND_AS_IS'
+          ? `Sent in 1-click! Autonomy streak updated to ${result.autonomyStatus.streakCount}/20.`
+          : `Sent with human edits! System extracted new learning: "${result.feedback.extractedLearning}". Streak reset.`
+      );
+    }
+
+    async function loadAutonomyStatus() {
+      const res = await fetch('/api/autonomy/status');
+      const rules = await res.json();
+      const cont = document.getElementById('autonomy-rules-container');
+      cont.innerHTML = rules.map(r => {
+        const pct = Math.min(100, Math.round((r.streakCount / r.threshold) * 100));
+        return `
+          <div class="streak-card">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 600;">
+              <span>${r.category}</span>
+              <span style="color: ${r.isAutonomous ? 'var(--success)' : 'var(--text-muted)'};">
+                ${r.isAutonomous ? '🟢 AUTONOMOUS' : `${r.streakCount} / ${r.threshold}`}
+              </span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: ${pct}%;"></div>
+            </div>
+            ${r.circuitBreakerTripped ? `
+              <div style="font-size: 10px; color: var(--danger); margin-top: 6px;">
+                ⚠️ Circuit Breaker Active: ${r.tripReason || 'Quality drop detected'}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    async function loadLearnings() {
+      const res = await fetch('/api/learnings');
+      const data = await res.json();
+      const cont = document.getElementById('learned-rules-container');
+      if (data.rules && data.rules.length > 0) {
+        cont.innerHTML = data.rules.slice(0, 6).map(r => `
+          <div class="rule-card">
+            <strong>[${r.category}]</strong> • ${r.ruleText}
+          </div>
+        `).join('');
+      }
+    }
+
+    async function simulateTwentyStreak() {
+      const cat = activeEmail ? activeEmail.intent.category : 'HOW_TO';
+      const res = await fetch('/api/inbox/simulate-streak', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ category: cat })
+      });
+      const data = await res.json();
+      loadAutonomyStatus();
+      alert(`🎉 20-in-a-row unedited streak achieved for ${cat}! Autonomy is now UNLOCKED.`);
+    }
+
+    async function simulateCircuitBreaker() {
+      const cat = activeEmail ? activeEmail.intent.category : 'HOW_TO';
+      const res = await fetch('/api/autonomy/trip-circuit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          category: cat,
+          reason: 'Customer reported dissatisfaction with draft tone. Quality metric degraded below 85%.'
+        })
+      });
+      loadAutonomyStatus();
+      alert(`⚠️ Circuit breaker tripped for ${cat}! Autonomy has been revoked for safety.`);
+    }
+
+    // Initial load
+    loadEmails();
+    loadAutonomyStatus();
+    loadLearnings();
+  </script>
+</body>
+</html>
