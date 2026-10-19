@@ -1,0 +1,33 @@
+MEETING TRANSCRIPT 3: Follow-Up Revisions & Scope Change Session
+Project: HealthMatch Pediatric & Specialist Directory
+Participants:
+- Alex Rivera (Lead AI Tech Consultant, BusinessLabs)
+- Dr. Elena Vance (Medical Director, HealthMatch)
+Date: October 17, 2026
+Duration: 38 minutes
+
+[00:00:10] Alex: Hello Dr. Vance, welcome back! We are ready to review the initial proposal. I understand you have a few updates from your clinic steering committee?
+
+[00:00:40] Dr. Elena Vance: Hi Alex. Yes, our advisory board met yesterday and we have three key changes that we need to adjust in our scope.
+
+[00:01:10] Alex: Great, let's walk through each change in detail. What is the first item?
+
+[00:01:25] Dr. Elena Vance: First, regarding the clinic membership plans: we want to postpone the Multi-Provider Clinic Group tier ($199/month with 10 child accounts) until Phase 2. We want to keep launch as simple as possible with just the Free and $49/month Solo tiers. Can we remove the multi-provider sub-account configuration from Phase 1?
+
+[00:02:40] Alex: Absolutely. That is straightforward to defer. It saves about 8 hours of configuration and testing. We will remove that from the baseline Phase 1 scope. What is the second change?
+
+[00:03:15] Dr. Elena Vance: Second, we want to add a direct Telehealth Video Consult link on doctor profiles—specifically for Doxy.me and Zoom for Healthcare links. But it should only be clickable for logged-in parents who have verified their email address, not anonymous scrapers. Is that possible to add to Phase 1?
+
+[00:04:30] Alex: Yes. That is a NEW request. We can implement a secure member-access widget in the doctor profile template that checks user session state before displaying the launch link. That will require approximately 8 hours of custom frontend widget development. We can include that as an approved Phase 1 addition.
+
+[00:05:40] Dr. Elena Vance: Wonderful! Now for the third item: our hospital network compliance officer dropped a surprise requirement on my desk this morning. They are insisting that before any doctor accepts a lead through the directory, our platform must perform automated real-time two-way synchronization with Epic EMR via HL7 / FHIR API standards to verify the doctor's active medical license and sync appointment slots directly into their hospital electronic health record. We need that included in the 4-week launch.
+
+[00:07:15] Alex: Dr. Vance, I'm glad you brought this up now. Full bidirectional Epic EMR FHIR integration is a complex enterprise healthcare integration. It involves SMART-on-FHIR OAuth 2.0 authentication, HL7 message queue processing, and hospital sandbox certification. That falls completely outside our agreed 4-week directory baseline and would risk your entire launch timeline.
+
+[00:08:45] Dr. Elena Vance: Ah, I see. What do you recommend we do?
+
+[00:09:00] Alex: My recommendation as your senior tech consultant is to classify the Epic FHIR integration as an OUT-OF-SCOPE Phase 2 Addendum. We quote it separately (approximately 60 hours / $7,500) and execute it after your core directory launch. For Phase 1, we continue with our verified webhook notification and Calendly/Doxy links, which allows you to launch on time and on budget without risking your launch date.
+
+[00:10:30] Dr. Elena Vance: That makes total sense, Alex. Please update the Scope of Work to reflect what was dropped, the new telehealth button, and put the Epic FHIR sync into a separate change order quote.
+
+[00:11:15] Alex: Perfect. I will generate the complete Delta Scope of Work and revised proposal for your review.

@@ -1,0 +1,32 @@
+MEETING TRANSCRIPT 2: Technical Architecture & Settings Validation
+Project: HealthMatch Pediatric & Specialist Directory
+Participants:
+- Alex Rivera (Lead AI Tech Consultant, BusinessLabs)
+- Marcus Vance (Operations Lead, HealthMatch)
+- Dr. Elena Vance (Medical Director, HealthMatch)
+Date: October 14, 2026
+Duration: 35 minutes
+
+[00:00:10] Alex: Hello Elena and Marcus. Today our goal is to confirm how we map your HealthMatch requirements against the platform's native architecture versus where custom development is genuinely required.
+
+[00:01:00] Marcus Vance: Thanks Alex. We reviewed the initial notes. We specifically want to confirm the search bar and the specialty taxonomy.
+
+[00:01:45] Alex: Great. Let's look at the specialty taxonomy: We have 3 levels: Primary Care / Behavioral Health > Sub-Specialty (e.g. Speech Pathology, Autism Spectrum) > Age Groups. We can bulk-import your entire CSV taxonomy using the Member Categories tool under My Members.
+
+[00:03:10] Marcus Vance: Wonderful. And what about the "Accepting New Patients" badge? Will that require writing a custom React component or database column?
+
+[00:03:40] Alex: No custom code needed for the badge! We use the native Form Manager under Toolbox. We add a custom checkbox field called 'accepting_new_patients' to the Member Profile form, and turn on the Search Results Display toggle. It renders natively on search cards. That saves you about $1,500 right there.
+
+[00:05:00] Dr. Elena Vance: That is music to our ears! What about the Stripe recurring payments?
+
+[00:05:30] Alex: Native as well. In Finance > Payment Gateways, we authenticate your Stripe account. Then under Membership Plans, we configure the $49/mo and $199/mo plans. Stripe handles recurring monthly rebilling and 3D Secure verification automatically.
+
+[00:07:00] Marcus Vance: Where DOES custom code come into play then?
+
+[00:07:20] Alex: Where we do need custom development for phase 1 is:
+1. Custom Brand Theme & Hero CSS: Custom typography, accessible contrast styling, and responsive layout polish (12 hours).
+2. Direct Lead Routing Webhook: An outgoing webhook script to log incoming patient evaluation requests to your secure HIPAA audit repository (16 hours).
+3. CSV Data Sanitization & Doctor Migration Script: Pre-formatting the 2,500 clinic records, resolving duplicate NPI numbers, and bulk geocoding addresses (14 hours).
+Total custom development is approximately 42 hours.
+
+[00:09:40] Dr. Elena Vance: That sounds very reasonable and clear. We look forward to seeing the detailed task breakdown.

@@ -1,0 +1,41 @@
+MEETING TRANSCRIPT 1: Initial Discovery Session
+Project: HealthMatch Pediatric & Specialist Directory
+Participants:
+- Alex Rivera (Lead AI Tech Consultant, BusinessLabs)
+- Dr. Elena Vance (Founder & Medical Director, HealthMatch)
+Date: October 12, 2026
+Duration: 42 minutes
+
+[00:00:15] Alex: Dr. Vance, thank you for joining today! I know you are preparing to launch HealthMatch. Could you walk me through the big vision for the directory and what your clinic network needs?
+
+[00:00:45] Dr. Elena Vance: Thanks Alex. We are building HealthMatch to solve a terrible problem in pediatric healthcare. Parents in our metro area wait 4 to 6 months to find child psychologists and pediatric speech therapists. We represent 120 partner clinics and roughly 2,500 licensed specialists. We need a searchable directory where parents can find doctors by specialty and zip code, check if they are accepting new patients, and book initial evaluations.
+
+[00:02:10] Alex: That is a critical mission. Let's break down the requirements one by one. First, how do parents discover specialists?
+
+[00:02:30] Dr. Elena Vance: Parents need to type their zip code and select a medical specialty—like 'Pediatric Neurology' or 'Child Psychology'—and see a radius of matching doctors within 15 to 25 miles on an interactive map.
+
+[00:03:45] Alex: Perfect. And what should doctor profiles display?
+
+[00:04:10] Dr. Elena Vance: Each doctor needs a verified profile with their photo, credentials, clinic address, and a prominent badge saying "Accepting New Patients" if they have open slots. Parents should also be able to submit a direct message or evaluation request right from the doctor's page.
+
+[00:05:30] Alex: Got it. And on the doctor/clinic side, how will you monetize the directory?
+
+[00:06:00] Dr. Elena Vance: We want three membership tiers for clinics:
+1. Basic Listing: Free, name and address only.
+2. Verified Solo Practitioner: $49/month recurring, full bio, photos, direct patient leads.
+3. Multi-Provider Clinic Group: $199/month, up to 10 sub-accounts under one clinic parent profile.
+We want payments handled automatically by credit card through Stripe.
+
+[00:07:45] Alex: Understood. Now what about appointments or scheduling? How does the initial booking happen?
+
+[00:08:15] Dr. Elena Vance: For phase 1, doctors want a simple link on their profile that opens their Calendly or Zocdoc booking page. Nothing overly complicated yet—just a verified external booking button.
+
+[00:09:20] Alex: And for leads or inquiries sent through the general site?
+
+[00:09:40] Dr. Elena Vance: If a parent submits a general "Find a Specialist" inquiry without choosing a specific doctor, the system should automatically route that lead to up to 3 matched specialists within a 20-mile radius who treat that condition.
+
+[00:11:00] Alex: Excellent. Are there any custom systems or external databases we need to sync with right now?
+
+[00:11:30] Dr. Elena Vance: No, for phase 1 we just want our team to upload our initial CSV of 2,500 doctors, hook up our Stripe, and launch within 4 weeks. Can we do this without spending $20,000 on custom programming?
+
+[00:12:45] Alex: Absolutely. Most of these capabilities can be configured directly through native admin settings in Brilliant Directories, which will keep your timeline short and your budget focused. I will compile our findings into a formal Scope of Work and proposal for you.

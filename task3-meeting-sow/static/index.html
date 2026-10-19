@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meeting to Scope of Work Studio · AI Tech Consultant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #090d16;
+      --bg-secondary: #0f172a;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(168, 85, 247, 0.35);
+      --accent: #a855f7;
+      --accent-gradient: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #06b6d4 100%);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(168, 85, 247, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.1) 0%, transparent 40%);
+    }
+
+    .container {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 24px;
+    }
+
+    .logo-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 8px 20px rgba(168, 85, 247, 0.35);
+    }
+
+    .logo-text h1 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Main Grid */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      gap: 24px;
+      height: calc(100vh - 120px);
+    }
+
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 10px;
+    }
+
+    /* Transcript Controls */
+    .transcript-selector {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .chip-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .chip-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: transparent;
+    }
+
+    .transcript-textarea {
+      flex: 1;
+      width: 100%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      padding: 12px;
+      resize: none;
+      outline: none;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: white;
+      border: none;
+      padding: 11px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+      margin-top: 14px;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.94;
+      transform: translateY(-1px);
+    }
+
+    /* Agent Deliberation Pipeline */
+    .pipeline-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .agent-pill {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+    }
+
+    .agent-pill.active {
+      border-color: var(--accent);
+      background: rgba(168, 85, 247, 0.1);
+    }
+
+    .agent-name {
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Output Tabs & Views */
+    .output-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      background: var(--bg-secondary);
+      padding: 4px;
+      border-radius: var(--radius-sm);
+      width: fit-content;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    .output-container {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Requirement Item Card */
+    .req-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+
+    .badge-native {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--success);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .badge-custom {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .badge-creep {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: var(--danger);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* Markdown Document Viewer */
+    .markdown-view {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .summary-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .stat-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-badge">
+        <div class="logo-icon">📋</div>
+        <div class="logo-text">
+          <h1>Meeting to Scope of Work Studio</h1>
+          <p>One hour, not one week · Multi-Agent Team with Settings-vs-Code Intelligence</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <div id="approval-pill" style="display: flex; align-items: center; gap: 6px; background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); color: var(--warning); padding: 6px 12px; border-radius: 9999px; font-size: 12px; font-weight: 600;">
+          🔒 Pending Human Consultant Review
+        </div>
+        <button id="btn-approve" class="btn-primary" style="margin: 0; background: var(--success);" onclick="approveActiveProposal()">
+          ✅ Sign Off & Approve Proposal
+        </button>
+      </div>
+    </header>
+
+    <div class="studio-grid">
+      <!-- LEFT PANE: Transcript Input & Controls -->
+      <div class="card">
+        <div class="card-title">
+          <span>Client Meeting Transcripts</span>
+          <span style="font-size: 11px; color: var(--text-muted);">Real Role-Played Sessions</span>
+        </div>
+
+        <div class="transcript-selector">
+          <button class="chip-btn active" onclick="loadTranscript('meeting_1_discovery.txt')">Meeting 1 (Discovery)</button>
+          <button class="chip-btn" onclick="loadTranscript('meeting_2_architecture.txt')">Meeting 2 (Architecture)</button>
+          <button class="chip-btn" onclick="loadTranscript('meeting_3_followup_changes.txt')">Meeting 3 (Scope Revisions &amp; Creep)</button>
+        </div>
+
+        <textarea id="transcript-input" class="transcript-textarea" placeholder="Paste meeting transcript here..."></textarea>
+
+        <div style="display: flex; gap: 10px; margin-top: 14px;">
+          <button class="btn-primary" style="flex: 1; margin: 0;" onclick="generateSOW()">
+            ⚡ Generate Scope of Work
+          </button>
+          <button class="btn-primary" style="flex: 1; margin: 0; background: linear-gradient(135deg, #06b6d4, #6366f1);" onclick="runDeltaAnalysis()">
+            🔄 Diff Meeting 1 vs 3
+          </button>
+        </div>
+      </div>
+
+      <!-- RIGHT PANE: Multi-Agent Analysis, Architecture, & SOW -->
+      <div class="card">
+        <!-- Agent Pipeline Visualization -->
+        <div class="pipeline-bar">
+          <div class="agent-pill active" id="pill-consultant">
+            <div class="agent-name">🧑‍💼 Senior Consultant</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Extracts goals &amp; pain points</div>
+          </div>
+          <div class="agent-pill active" id="pill-architect">
+            <div class="agent-name">🏛️ Solution Architect</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Calls Task 1: Settings vs Code</div>
+          </div>
+          <div class="agent-pill active" id="pill-estimator">
+            <div class="agent-name">⏱️ Developer Estimator</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Task hours &amp; team roles</div>
+          </div>
+          <div class="agent-pill active" id="pill-auditor">
+            <div class="agent-name">🛡️ Scope Auditor &amp; Diff</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 2px;">Detects scope creep &amp; deltas</div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div class="output-tabs">
+            <button class="tab-btn active" onclick="switchOutputTab('sow')">Scope of Work</button>
+            <button class="tab-btn" onclick="switchOutputTab('tasks')">Developer Tasks</button>
+            <button class="tab-btn" onclick="switchOutputTab('diff')">Meeting Diff &amp; Creep</button>
+            <button class="tab-btn" onclick="switchOutputTab('proposal')">Client-Ready Proposal</button>
+          </div>
+          <div id="proposal-id-tag" style="font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">
+            ID: Ready
+          </div>
+        </div>
+
+        <!-- Summary KPI stats -->
+        <div class="summary-stats">
+          <div class="stat-box">
+            <div class="stat-label">Native Settings ($0)</div>
+            <div class="stat-value" style="color: var(--success);" id="kpi-native">4 Settings</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Custom Tasks</div>
+            <div class="stat-value" style="color: var(--accent);" id="kpi-custom">3 Tasks</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Total Estimated Hours</div>
+            <div class="stat-value" id="kpi-hours">42.0 hrs</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Total Phase 1 Cost</div>
+            <div class="stat-value" style="color: #38bdf8;" id="kpi-cost">$5,250.00</div>
+          </div>
+        </div>
+
+        <!-- OUTPUT CONTAINER -->
+        <div class="output-container" id="output-view">
+          <p style="color: var(--text-muted); text-align: center; margin-top: 100px;">
+            Select a meeting transcript on the left and click <strong>Generate Scope of Work</strong> to run the multi-agent team.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let activeProposal = null;
+    let transcripts = {};
+    let activeTab = 'sow';
+
+    async function loadSampleTranscripts() {
+      try {
+        const res = await fetch('/api/v1/transcripts');
+        transcripts = await res.json();
+        if (transcripts['meeting_1_discovery.txt']) {
+          document.getElementById('transcript-input').value = transcripts['meeting_1_discovery.txt'];
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function loadTranscript(name) {
+      document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      if (transcripts[name]) {
+        document.getElementById('transcript-input').value = transcripts[name];
+      }
+    }
+
+    function switchOutputTab(tab) {
+      activeTab = tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      renderActiveTab();
+    }
+
+    async function generateSOW() {
+      const text = document.getElementById('transcript-input').value;
+      const res = await fetch('/api/v1/process-transcript', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          transcript_text: text,
+          client_name: 'Dr. Elena Vance',
+          project_name: 'HealthMatch Pediatric Directory'
+        })
+      });
+      activeProposal = await res.json();
+      updateKPIs();
+      renderActiveTab();
+    }
+
+    async function runDeltaAnalysis() {
+      const res = await fetch('/api/v1/process-delta', { method: 'POST' });
+      activeProposal = await res.json();
+      updateKPIs();
+      activeTab = 'diff';
+      document.querySelectorAll('.tab-btn').forEach((b, i) => {
+        if (i === 2) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+      renderActiveTab();
+    }
+
+    function updateKPIs() {
+      if (!activeProposal) return;
+      const sow = activeProposal.sow;
+      document.getElementById('kpi-native').innerText = `${sow.total_native_settings} Settings`;
+      document.getElementById('kpi-custom').innerText = `${sow.total_custom_tasks} Tasks`;
+      document.getElementById('kpi-hours').innerText = `${sow.total_estimated_hours.toFixed(1)} hrs`;
+      document.getElementById('kpi-cost').innerText = `$${sow.total_estimated_cost.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      document.getElementById('proposal-id-tag').innerText = `ID: ${activeProposal.proposal_id}`;
+
+      const pill = document.getElementById('approval-pill');
+      if (activeProposal.is_approved_by_human) {
+        pill.innerHTML = `✅ Approved by ${activeProposal.approved_by || 'Consultant'}`;
+        pill.style.color = 'var(--success)';
+        pill.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+        pill.style.background = 'rgba(16, 185, 129, 0.15)';
+      } else {
+        pill.innerHTML = '🔒 Pending Human Consultant Review';
+        pill.style.color = 'var(--warning)';
+        pill.style.borderColor = 'rgba(245, 158, 11, 0.3)';
+        pill.style.background = 'rgba(245, 158, 11, 0.1)';
+      }
+    }
+
+    function renderActiveTab() {
+      if (!activeProposal) return;
+      const view = document.getElementById('output-view');
+
+      if (activeTab === 'sow') {
+        view.innerHTML = activeProposal.sow.requirements.map(r => `
+          <div class="req-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-weight: 700; color: #fff;">${r.title}</span>
+              <span class="${r.resolution_type === 'NATIVE_SETTING' ? 'badge-native' : 'badge-custom'}">
+                ${r.resolution_type === 'NATIVE_SETTING' ? '⚙️ Native Setting ($0)' : '💻 Custom Code'}
+              </span>
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 6px;">
+              <strong>Client Request:</strong> <em>"${r.client_wording}"</em>
+            </div>
+            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">
+              ${r.resolution_type === 'NATIVE_SETTING' ? `
+                📍 <strong>Admin Setting:</strong> <code>${r.setting_location || 'Admin Dashboard'}</code>
+                ${r.kb_article_url ? `<br>🔗 <a href="${r.kb_article_url}" target="_blank" style="color: var(--accent);">Documentation Reference</a>` : ''}
+              ` : `
+                ⏱️ <strong>Estimated Hours:</strong> ${r.estimated_hours} hrs (${r.complexity} Complexity)
+              `}
+              <div style="margin-top: 4px;">💡 ${r.consultant_notes}</div>
+            </div>
+          </div>
+        `).join('');
+      } else if (activeTab === 'tasks') {
+        view.innerHTML = `
+          <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-muted);">
+                <th style="text-align: left; padding: 8px;">ID</th>
+                <th style="text-align: left; padding: 8px;">Task Title &amp; Scope</th>
+                <th style="text-align: left; padding: 8px;">Role</th>
+                <th style="text-align: right; padding: 8px;">Hours</th>
+                <th style="text-align: right; padding: 8px;">Cost ($125/hr)</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${activeProposal.sow.developer_tasks.map(t => `
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                  <td style="padding: 10px 8px;"><code>${t.task_id}</code></td>
+                  <td style="padding: 10px 8px;">
+                    <div style="font-weight: 600; color: #fff;">${t.title}</div>
+                    <div style="font-size: 11px; color: var(--text-muted);">${t.description}</div>
+                  </td>
+                  <td style="padding: 10px 8px;"><span class="badge-custom">${t.role}</span></td>
+                  <td style="padding: 10px 8px; text-align: right; font-weight: 700;">${t.hours.toFixed(1)} hrs</td>
+                  <td style="padding: 10px 8px; text-align: right; color: #38bdf8; font-weight: 700;">$${t.total_cost.toLocaleString()}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        `;
+      } else if (activeTab === 'diff') {
+        const delta = activeProposal.delta_report;
+        if (!delta) {
+          view.innerHTML = '<p style="color: var(--text-muted); text-align: center; margin-top: 80px;">Click <strong>Diff Meeting 1 vs 3</strong> to run scope delta comparison.</p>';
+          return;
+        }
+
+        view.innerHTML = `
+          <div style="background: rgba(168, 85, 247, 0.08); border: 1px solid var(--border-glow); padding: 14px; border-radius: var(--radius-sm); font-size: 12px; margin-bottom: 12px; line-height: 1.5;">
+            <strong>Delta Executive Summary:</strong> ${delta.executive_delta_summary}
+          </div>
+          ${delta.diff_items.map(d => `
+            <div class="req-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <span style="font-weight: 700; color: #fff;">${d.title}</span>
+                <span class="${d.status === 'OUT_OF_SCOPE_EXTRA' ? 'badge-creep' : (d.status === 'UNCHANGED' ? 'badge-native' : 'badge-custom')}">
+                  ${d.status.replace(/_/g, ' ')}
+                </span>
+              </div>
+              <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 6px;">
+                Original: ${d.original_hours.toFixed(1)} hrs &rarr; Revised: ${d.new_hours.toFixed(1)} hrs | Cost Delta: <strong style="color: ${d.cost_difference >= 0 ? 'var(--accent)' : 'var(--success)'};">$${d.cost_difference:+,}</strong>
+              </div>
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">
+                ${d.reasoning}
+              </div>
+            </div>
+          `).join('')}
+        `;
+      } else if (activeTab === 'proposal') {
+        view.innerHTML = `
+          <div class="markdown-view">${activeProposal.client_ready_markdown}</div>
+        `;
+      }
+    }
+
+    async function approveActiveProposal() {
+      if (!activeProposal) return;
+      const res = await fetch(`/api/v1/proposals/${activeProposal.proposal_id}/approve`, {
+        method: 'POST'
+      });
+      activeProposal = await res.json();
+      updateKPIs();
+      alert('✅ Proposal signed off and officially approved for client presentation!');
+    }
+
+    // Initialize
+    loadSampleTranscripts();
+  </script>
+</body>
+</html>
