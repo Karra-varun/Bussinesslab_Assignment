@@ -1,0 +1,177 @@
+[
+  {
+    "id": "T1-01",
+    "question": "Where do I configure the social media tab in general settings?",
+    "expected_category": "Settings",
+    "must_contain": ["general settings", "social media", "dashboard"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-02",
+    "question": "How do I connect Stripe for recurring subscription payments?",
+    "expected_category": "Finance",
+    "must_contain": ["stripe", "payment gateways", "finance"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-03",
+    "question": "Can I test Stripe with 4242 credit cards before launching live?",
+    "expected_category": "Finance",
+    "must_contain": ["test mode", "stripe", "4242"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-04",
+    "question": "What is the standard refund policy and how are refunds processed?",
+    "expected_category": "Finance",
+    "must_contain": ["refund", "stripe", "30 days"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-05",
+    "question": "Where can members cancel their recurring subscription from their dashboard?",
+    "expected_category": "Finance",
+    "must_contain": ["cancellation", "membership plans", "cancel"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-06",
+    "question": "How do I import member categories using a CSV file?",
+    "expected_category": "Members",
+    "must_contain": ["member categories", "csv", "import"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-07",
+    "question": "What are the required CSV columns for category import?",
+    "expected_category": "Members",
+    "must_contain": ["top", "sub", "column"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-08",
+    "question": "Can I send mass email newsletters and what is the hourly sending rate?",
+    "expected_category": "Emails",
+    "must_contain": ["send newsletter", "250", "hour"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-09",
+    "question": "What SPF record should I add to my DNS to prevent spam flagging?",
+    "expected_category": "Emails",
+    "must_contain": ["spf", "include:brilliantdirectories.com", "dns"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-10",
+    "question": "How does lead auto-matching work when a visitor enters a zip code?",
+    "expected_category": "Leads",
+    "must_contain": ["auto-match", "radius", "leads"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-11",
+    "question": "Can I charge members to purchase individual leads via Stripe?",
+    "expected_category": "Leads",
+    "must_contain": ["pay-per-lead", "stripe", "pricing"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-12",
+    "question": "Where do I configure default search radius distance and sorting order?",
+    "expected_category": "Settings",
+    "must_contain": ["search settings", "general settings", "radius"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-13",
+    "question": "How do I add an Accepting New Patients badge without custom code?",
+    "expected_category": "Settings",
+    "must_contain": ["form manager", "search results", "native"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-14",
+    "question": "Where do I enter outgoing webhook URLs in the Developer Hub?",
+    "expected_category": "Developer",
+    "must_contain": ["developer hub", "webhooks", "api"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-15",
+    "question": "What events does the webhook system trigger on member changes?",
+    "expected_category": "Developer",
+    "must_contain": ["member.signup", "member.updated", "lead.created"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-16",
+    "question": "Where do I set primary site currency to Canadian Dollars CAD?",
+    "expected_category": "Settings",
+    "must_contain": ["localization", "general settings", "currency"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-17",
+    "question": "When does a project require custom development vs native settings?",
+    "expected_category": "Consulting",
+    "must_contain": ["85%", "native settings", "custom code"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-18",
+    "question": "What happens if an article is removed from the sitemap?",
+    "expected_category": "System",
+    "must_contain": ["purged", "stop appearing", "memory"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-19",
+    "question": "How do verified expert answers flow back into the knowledge base?",
+    "expected_category": "System",
+    "must_contain": ["ticket", "expert", "memory"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-20",
+    "question": "What is the recommended Open Graph image dimensions for social sharing?",
+    "expected_category": "Settings",
+    "must_contain": ["1200x630", "open graph", "social media"],
+    "is_out_of_domain": false
+  },
+  {
+    "id": "T1-21",
+    "question": "How do I deploy an Ethereum smart contract into directory MySQL database?",
+    "expected_category": "Fallback",
+    "must_contain": ["not have enough", "escalated", "human expert"],
+    "is_out_of_domain": true
+  },
+  {
+    "id": "T1-22",
+    "question": "Can I train a custom quantum neural network inside Brilliant Directories widget?",
+    "expected_category": "Fallback",
+    "must_contain": ["not have enough", "escalated", "human expert"],
+    "is_out_of_domain": true
+  },
+  {
+    "id": "T1-23",
+    "question": "What is the secret recipe for Kentucky Fried Chicken seasoning?",
+    "expected_category": "Fallback",
+    "must_contain": ["not have enough", "escalated", "human expert"],
+    "is_out_of_domain": true
+  },
+  {
+    "id": "T1-24",
+    "question": "How do I launch a satellite into low Earth orbit from the admin panel?",
+    "expected_category": "Fallback",
+    "must_contain": ["not have enough", "escalated", "human expert"],
+    "is_out_of_domain": true
+  },
+  {
+    "id": "T1-25",
+    "question": "Where is the Martian teleportation portal toggle in general settings?",
+    "expected_category": "Fallback",
+    "must_contain": ["not have enough", "escalated", "human expert"],
+    "is_out_of_domain": true
+  }
+]

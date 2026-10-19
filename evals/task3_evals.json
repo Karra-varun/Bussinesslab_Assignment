@@ -1,0 +1,22 @@
+[
+  { "id": "M3-01", "requirement": "Doctor search by medical specialty and zip code", "expected_type": "NATIVE_SETTING", "expected_hours": 0.0 },
+  { "id": "M3-02", "requirement": "Accepting new patients filter checkbox on member search", "expected_type": "NATIVE_SETTING", "expected_hours": 0.0 },
+  { "id": "M3-03", "requirement": "Stripe monthly recurring billing for membership tiers", "expected_type": "NATIVE_SETTING", "expected_hours": 0.0 },
+  { "id": "M3-04", "requirement": "Lead auto-routing to 3 local specialists within 20 miles", "expected_type": "NATIVE_SETTING", "expected_hours": 0.0 },
+  { "id": "M3-05", "requirement": "Social media profile links in header and footer", "expected_type": "NATIVE_SETTING", "expected_hours": 0.0 },
+  { "id": "M3-06", "requirement": "Setting primary currency to Canadian Dollars CAD", "expected_type": "NATIVE_SETTING", "expected_hours": 0.0 },
+  { "id": "M3-07", "requirement": "Bulk importing 1,200 medical categories via CSV", "expected_type": "NATIVE_SETTING", "expected_hours": 0.0 },
+  { "id": "M3-08", "requirement": "Member self-service subscription cancellation toggle", "expected_type": "NATIVE_SETTING", "expected_hours": 0.0 },
+  { "id": "M3-09", "requirement": "SEO meta tags and OpenGraph preview image defaults", "expected_type": "NATIVE_SETTING", "expected_hours": 0.0 },
+  { "id": "M3-10", "requirement": "Bespoke brand CSS theme overrides and typography polish", "expected_type": "CUSTOM_DEVELOPMENT", "expected_hours": 12.0 },
+  { "id": "M3-11", "requirement": "Outgoing event webhook dispatcher to secure audit repository", "expected_type": "CUSTOM_DEVELOPMENT", "expected_hours": 16.0 },
+  { "id": "M3-12", "requirement": "Doctor directory CSV data sanitization and migration script", "expected_type": "CUSTOM_DEVELOPMENT", "expected_hours": 14.0 },
+  { "id": "M3-13", "requirement": "Authenticated telehealth video consultation launch button widget", "expected_type": "CUSTOM_DEVELOPMENT", "expected_hours": 8.0 },
+  { "id": "M3-14", "requirement": "Epic EMR real-time bidirectional FHIR sync integration", "expected_type": "CUSTOM_DEVELOPMENT", "is_scope_creep": true, "expected_hours": 60.0 },
+  { "id": "M3-15", "requirement": "Meeting delta tracking: identify unchanged items", "expected_status": "UNCHANGED", "is_delta_test": true },
+  { "id": "M3-16", "requirement": "Meeting delta tracking: identify deferred multi-clinic tier", "expected_status": "REMOVED", "is_delta_test": true },
+  { "id": "M3-17", "requirement": "Meeting delta tracking: identify new telehealth button", "expected_status": "NEW_REQUEST", "is_delta_test": true },
+  { "id": "M3-18", "requirement": "Meeting delta tracking: detect Epic FHIR out-of-scope creep", "expected_status": "OUT_OF_SCOPE_EXTRA", "is_delta_test": true },
+  { "id": "M3-19", "requirement": "Human approval gate enforcement before client presentation", "expected_gate": "LOCKS_UNTIL_APPROVED" },
+  { "id": "M3-20", "requirement": "Proposal markdown generation with role and cost table", "expected_format": "MARKDOWN_TABLE" }
+]

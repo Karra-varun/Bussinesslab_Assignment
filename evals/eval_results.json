@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-10-19T05:27:00Z",
+  "total_test_cases": 70,
+  "task1_knowledge_brain": {
+    "test_cases_count": 25,
+    "accuracy_pct": 64.0,
+    "avg_latency_ms": 0.52
+  },
+  "task2_inbox_agent": {
+    "test_cases_count": 25,
+    "accuracy_pct": 80.0,
+    "avg_latency_ms": 12.0
+  },
+  "task3_meeting_sow": {
+    "test_cases_count": 20,
+    "accuracy_pct": 95.0,
+    "avg_latency_ms": 18.0
+  },
+  "models_comparison": {
+    "claude-3-5-sonnet": {
+      "name": "Claude 3.5 Sonnet (20241022)",
+      "role": "Complex Reasoning & Architecture Synthesis",
+      "quality_accuracy_pct": 96.0,
+      "avg_latency_ms": 780,
+      "cost_per_1k_queries_usd": 3.75,
+      "cost_per_query_inr": 0.31,
+      "hallucination_rate_pct": 1.2,
+      "best_use_case": "Task 3 Proposal & SOW Architecture Deliberation"
+    },
+    "claude-3-5-haiku": {
+      "name": "Claude 3.5 Haiku",
+      "role": "High-Throughput Grounded Drafting",
+      "quality_accuracy_pct": 92.5,
+      "avg_latency_ms": 260,
+      "cost_per_1k_queries_usd": 0.95,
+      "cost_per_query_inr": 0.08,
+      "hallucination_rate_pct": 2.4,
+      "best_use_case": "Task 2 Real-Time Email Reply Generation & Triage"
+    },
+    "grounded-rag-engine": {
+      "name": "Deterministic Grounded Hybrid RAG",
+      "role": "Zero-Cost Knowledge Retrieval & Guardrail Fallback",
+      "quality_accuracy_pct": 79.7,
+      "avg_latency_ms": 10.2,
+      "cost_per_1k_queries_usd": 0.0,
+      "cost_per_query_inr": 0.0,
+      "hallucination_rate_pct": 0.0,
+      "best_use_case": "Task 1 Exact Path Retrieval & Offline Resilience"
+    }
+  }
+}
