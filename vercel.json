@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "routes": [
+    {
+      "src": "/task1",
+      "dest": "/task1-knowledge-brain/static/index.html"
+    },
+    {
+      "src": "/task1/(.*)",
+      "dest": "/task1-knowledge-brain/static/$1"
+    },
+    {
+      "src": "/task2",
+      "dest": "/task2-inbox-agent/public/index.html"
+    },
+    {
+      "src": "/task2/(.*)",
+      "dest": "/task2-inbox-agent/public/$1"
+    },
+    {
+      "src": "/task3",
+      "dest": "/task3-meeting-sow/static/index.html"
+    },
+    {
+      "src": "/task3/(.*)",
+      "dest": "/task3-meeting-sow/static/$1"
+    },
+    {
+      "src": "/portal",
+      "dest": "/shared/portal/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

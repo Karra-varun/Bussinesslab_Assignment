@@ -36,7 +36,7 @@ def is_port_open(port: int) -> bool:
 
 class PortalHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=str(ROOT_DIR / "shared" / "portal"), **kwargs)
+        super().__init__(*args, directory=str(ROOT_DIR), **kwargs)
 
     def log_message(self, format, *args):
         pass  # Quiet portal logs

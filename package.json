@@ -1,0 +1,11 @@
+{
+  "name": "ai-tech-consultant",
+  "version": "1.0.0",
+  "description": "AI Tech Consultant Capstone Project · @BusinessLabs | Anthropic · Interconnected Knowledge Brain, Inbox Agent, and Meeting-to-SOW Studio",
+  "scripts": {
+    "start": "python run_all.py",
+    "test": "pytest task1-knowledge-brain/tests && pytest task3-meeting-sow/tests && cd task2-inbox-agent && npm test"
+  },
+  "author": "Karra Varun",
+  "license": "MIT"
+}
