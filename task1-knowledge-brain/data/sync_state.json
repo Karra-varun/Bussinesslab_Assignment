@@ -1,0 +1,357 @@
+{
+  "last_sitemap_check": null,
+  "processed_urls": {
+    "https://support.brilliantdirectories.com/support/solutions/articles/5000558389-settings-general-settings-social-media-tab": {
+      "lastmod": "2026-10-18T08:00:54+00:00",
+      "hash": "hash_5000558389",
+      "article_id": "5000558389"
+    },
+    "https://support.brilliantdirectories.com/support/solutions/articles/5000558357-can-i-send-a-mass-email-campaign-using-brilliant-directories-": {
+      "lastmod": "2026-10-18T08:00:54+00:00",
+      "hash": "hash_5000558357",
+      "article_id": "5000558357"
+    },
+    "https://support.brilliantdirectories.com/support/solutions/articles/5000558363-emails-email-accounts": {
+      "lastmod": "2026-10-18T08:00:54+00:00",
+      "hash": "hash_5000558363",
+      "article_id": "5000558363"
+    },
+    "https://support.brilliantdirectories.com/support/solutions/articles/5000558401-how-to-import-categories-via-csv-file": {
+      "lastmod": "2026-10-18T08:00:54+00:00",
+      "hash": "hash_5000558401",
+      "article_id": "5000558401"
+    },
+    "https://support.brilliantdirectories.com/support/solutions/articles/5000558415-connecting-stripe-payment-gateway": {
+      "lastmod": "2026-10-18T08:00:54+00:00",
+      "hash": "hash_5000558415",
+      "article_id": "5000558415"
+    },
+    "https://support.brilliantdirectories.com/support/solutions/articles/5000558422-how-to-process-refunds-and-handle-cancellations": {
+      "lastmod": "2026-10-18T08:00:54+00:00",
+      "hash": "hash_5000558422",
+      "article_id": "5000558422"
+    },
+    "https://support.brilliantdirectories.com/support/solutions/articles/5000558430-lead-system-auto-matching-and-lead-pricing": {
+      "lastmod": "2026-10-18T08:00:54+00:00",
+      "hash": "hash_5000558430",
+      "article_id": "5000558430"
+    },
+    "https://support.brilliantdirectories.com/support/solutions/articles/5000558445-member-search-results-and-radius-search-settings": {
+      "lastmod": "2026-10-18T08:00:54+00:00",
+      "hash": "hash_5000558445",
+      "article_id": "5000558445"
+    },
+    "https://support.brilliantdirectories.com/support/solutions/articles/5000558460-webhooks-and-api-integrations": {
+      "lastmod": "2026-10-18T08:00:54+00:00",
+      "hash": "hash_5000558460",
+      "article_id": "5000558460"
+    },
+    "https://support.brilliantdirectories.com/support/solutions/articles/5000558475-when-to-use-settings-vs-custom-code": {
+      "lastmod": "2026-10-18T08:00:54+00:00",
+      "hash": "hash_5000558475",
+      "article_id": "5000558475"
+    }
+  },
+  "article_index": {
+    "5000558389": {
+      "id": "5000558389",
+      "url": "https://support.brilliantdirectories.com/support/solutions/articles/5000558389-settings-general-settings-social-media-tab",
+      "title": "Settings: General Settings - Social Media Tab",
+      "category": "Settings",
+      "folder": "General Settings",
+      "breadcrumbs": [
+        "Solutions",
+        "Settings",
+        "General Settings",
+        "Social Media Tab"
+      ],
+      "content_html": "",
+      "content_text": "The Social Media tab in General Settings allows directory administrators to link their social media profiles and configure social sharing defaults.\nTo navigate here: Log in to the Admin Dashboard > Go to Settings > General Settings > Click the 'Social Media' tab.\nConfigurable fields include:\n1. Facebook Page URL and Facebook App ID (for OAuth login and social feed embedding).\n2. X / Twitter Profile URL and Twitter Card default image.\n3. LinkedIn Company URL.\n4. Instagram Profile URL.\n5. YouTube Channel URL.\n6. Open Graph Meta Image: Upload a default 1200x630px image that displays when links to your directory are shared on messaging apps and social media.\nTip: Enabling Social Login (Facebook/Google) requires adding API keys in Settings > General Settings > Integrations tab, not the Social Media tab.",
+      "screenshots": [
+        {
+          "url": "https://support.brilliantdirectories.com/images/general-settings-social-media.png",
+          "alt": "Brilliant Directories General Settings Social Media Tab Screenshot",
+          "caption": "General Settings interface displaying social media profile URLs and Open Graph default image upload box.",
+          "ocr_text": "Admin > Settings > General Settings > Social Media | Facebook URL | Twitter/X URL | LinkedIn URL | Default Share Image",
+          "ui_context": "Settings > General Settings > Social Media tab",
+          "article_id": "5000558389"
+        }
+      ],
+      "last_modified": "2026-10-18T08:00:54+00:00",
+      "content_hash": "hash_5000558389",
+      "is_deleted": false,
+      "source": "help_center"
+    },
+    "5000558357": {
+      "id": "5000558357",
+      "url": "https://support.brilliantdirectories.com/support/solutions/articles/5000558357-can-i-send-a-mass-email-campaign-using-brilliant-directories-",
+      "title": "Can I Send a Mass Email Campaign Using Brilliant Directories?",
+      "category": "Emails",
+      "folder": "Email Marketing",
+      "breadcrumbs": [
+        "Solutions",
+        "Emails",
+        "Email Marketing",
+        "Mass Email Campaigns"
+      ],
+      "content_html": "",
+      "content_text": "Yes, Brilliant Directories includes a built-in Email Marketing Newsletter tool to broadcast emails to members and newsletter subscribers.\nNavigation: Dashboard > Emails > Send Newsletter.\nKey Features and Limits:\n1. Recipient Filtering: Filter by Membership Plan, Member Status (Active, Pending, Cancelled), or Newsletter Subscriber list.\n2. Email Templates: Select pre-designed responsive newsletter templates or build custom HTML templates in Emails > Email Templates.\n3. Sending Limits: Default server sending rate is throttled to 250 emails/hour to maintain high domain sender reputation and prevent IP blacklisting.\n4. Third-Party SMTP: For sending high volumes (>5,000 emails/month), connecting an external SMTP provider like SendGrid, Mailgun, or Amazon SES is recommended under Settings > General Settings > Integrations.\nUnsubscribe Handling: Every email sent automatically appends an RFC-compliant unsubscribe link linked to the member profile preferences.",
+      "screenshots": [
+        {
+          "url": "https://support.brilliantdirectories.com/images/send-newsletter-tool.png",
+          "alt": "Send Newsletter interface showing recipient filter dropdown and template picker",
+          "caption": "Email Marketing dashboard with recipient segmentation filters and scheduling options.",
+          "ocr_text": "Emails > Send Newsletter | Step 1: Select Recipients | Step 2: Choose Template | Step 3: Review & Schedule",
+          "ui_context": "Emails > Send Newsletter wizard",
+          "article_id": "5000558357"
+        }
+      ],
+      "last_modified": "2026-10-18T08:00:54+00:00",
+      "content_hash": "hash_5000558357",
+      "is_deleted": false,
+      "source": "help_center"
+    },
+    "5000558363": {
+      "id": "5000558363",
+      "url": "https://support.brilliantdirectories.com/support/solutions/articles/5000558363-emails-email-accounts",
+      "title": "Emails: Setting Up Email Accounts and MX Records",
+      "category": "Emails",
+      "folder": "Email Configuration",
+      "breadcrumbs": [
+        "Solutions",
+        "Emails",
+        "Email Accounts",
+        "Configuration"
+      ],
+      "content_html": "",
+      "content_text": "Configuring branded custom email accounts (e.g., info@yourdirectory.com, support@yourdirectory.com).\nNavigation: Dashboard > Emails > Email Accounts.\nOptions:\n1. Native CPanel Webmail: Create mailboxes directly on the server with POP3/IMAP credentials.\n2. Google Workspace / Microsoft 365: Recommended for professional deliverability. To route mail externally, update MX Records under Developer Hub > DNS Records.\n3. SPF and DKIM Records: Always verify SPF TXT records (`v=spf1 include:brilliantdirectories.com ~all`) to prevent emails from ending in client spam folders.",
+      "screenshots": [
+        {
+          "url": "https://support.brilliantdirectories.com/images/email-accounts-dns.png",
+          "alt": "Email Accounts configuration panel",
+          "caption": "DNS MX record and SPF configuration screen.",
+          "ocr_text": "Emails > Email Accounts | Add Mailbox | DNS Status: Verified",
+          "ui_context": "Emails > Email Accounts",
+          "article_id": "5000558363"
+        }
+      ],
+      "last_modified": "2026-10-18T08:00:54+00:00",
+      "content_hash": "hash_5000558363",
+      "is_deleted": false,
+      "source": "help_center"
+    },
+    "5000558401": {
+      "id": "5000558401",
+      "url": "https://support.brilliantdirectories.com/support/solutions/articles/5000558401-how-to-import-categories-via-csv-file",
+      "title": "How to Import Member Categories via CSV File",
+      "category": "Members",
+      "folder": "Categories & Classifications",
+      "breadcrumbs": [
+        "Solutions",
+        "Members",
+        "Categories",
+        "CSV Import"
+      ],
+      "content_html": "",
+      "content_text": "To bulk import Top-Level, Sub-Level, and Sub-Sub Categories into your directory:\nNavigation: Dashboard > My Members > Member Categories > Click 'Import Categories' button.\nCSV Formatting Rules:\n- Column A: Top Category Name\n- Column B: Sub Category Name (Parent must match Column A)\n- Column C: Sub-Sub Category Name (Parent must match Column B)\n- Column D: Clean URL Slug (Optional, auto-generated if left blank)\nMax File Size: 10MB CSV UTF-8 formatted.\nImportant: Always perform a database backup under Developer Hub > Backups prior to large category imports to enable instant restoration if hierarchy columns are misaligned.",
+      "screenshots": [
+        {
+          "url": "https://support.brilliantdirectories.com/images/import-categories-csv.png",
+          "alt": "Member categories import dialog with file upload and sample template link",
+          "caption": "Import Categories modal with CSV mapping and duplicate detection switches.",
+          "ocr_text": "My Members > Member Categories > Import | Upload CSV | Match Columns | Overwrite Existing: NO",
+          "ui_context": "My Members > Member Categories > Import modal",
+          "article_id": "5000558401"
+        }
+      ],
+      "last_modified": "2026-10-18T08:00:54+00:00",
+      "content_hash": "hash_5000558401",
+      "is_deleted": false,
+      "source": "help_center"
+    },
+    "5000558415": {
+      "id": "5000558415",
+      "url": "https://support.brilliantdirectories.com/support/solutions/articles/5000558415-connecting-stripe-payment-gateway",
+      "title": "Connecting Stripe Payment Gateway for Subscriptions & One-Time Payments",
+      "category": "Finance",
+      "folder": "Payment Gateways",
+      "breadcrumbs": [
+        "Solutions",
+        "Finance",
+        "Payment Gateways",
+        "Stripe Setup"
+      ],
+      "content_html": "",
+      "content_text": "Brilliant Directories integrates natively with Stripe for automated credit card billing, recurring subscription plans, and paid lead purchases.\nNavigation: Dashboard > Finance > Payment Gateways > Select 'Stripe'.\nSetup Steps:\n1. Click 'Connect with Stripe' to authenticate via Stripe OAuth or enter your Stripe Publishable Key and Secret Key manually.\n2. Webhook Configuration: Copy the Brilliant Directories Webhook Endpoint URL into your Stripe Dashboard (Developers > Webhooks). Listen for events: `customer.subscription.deleted`, `invoice.payment_succeeded`, `invoice.payment_failed`.\n3. Supported Currencies: Set your primary currency in Settings > General Settings > Localization. Stripe will bill transactions in this designated currency.\n3D Secure (SCA): Natively supported for European and international credit cards.\nTest Mode: Toggle 'Enable Test Mode' to simulate signups using 4242 test cards before launching live.",
+      "screenshots": [
+        {
+          "url": "https://support.brilliantdirectories.com/images/stripe-gateway-settings.png",
+          "alt": "Payment Gateway settings screen showing Stripe Connect button and webhook status",
+          "caption": "Finance Payment Gateways page with Stripe live/test toggles and webhook signing secret input.",
+          "ocr_text": "Finance > Payment Gateways > Stripe | Status: Active | Live Secret Key: sk_live_*** | Test Mode: OFF",
+          "ui_context": "Finance > Payment Gateways > Stripe tab",
+          "article_id": "5000558415"
+        }
+      ],
+      "last_modified": "2026-10-18T08:00:54+00:00",
+      "content_hash": "hash_5000558415",
+      "is_deleted": false,
+      "source": "help_center"
+    },
+    "5000558422": {
+      "id": "5000558422",
+      "url": "https://support.brilliantdirectories.com/support/solutions/articles/5000558422-how-to-process-refunds-and-handle-cancellations",
+      "title": "How to Process Refunds and Handle Member Cancellations",
+      "category": "Finance",
+      "folder": "Billing & Policy",
+      "breadcrumbs": [
+        "Solutions",
+        "Finance",
+        "Billing",
+        "Refunds & Cancellations"
+      ],
+      "content_html": "",
+      "content_text": "Refund Processing Workflow:\nRefunds for member subscriptions or lead purchases must be initiated directly within your connected Payment Gateway (Stripe or PayPal account).\nSteps to issue refund:\n1. Log into your Stripe account > Search for the member's transaction > Click 'Refund'.\n2. Inside Brilliant Directories: Go to Finance > Transaction History > Find the transaction > Click 'Mark as Refunded' to update directory reporting logs. Note: The directory does not deduct funds directly from your bank; gateway handles funds transfer.\n\nMember Cancellation Settings:\nNavigation: Dashboard > Finance > Membership Plans > Select Plan > 'Sign Up Page' / 'Cancellation' tab.\nAdmin controls:\n- Allow Members to Cancel from Dashboard: YES / NO toggle.\n- When Cancelled: Immediately change member status to 'Cancelled' or allow access until end of current billing cycle.\n- Retention Offer / Exit Survey: Present a discount offer or cancellation survey prompt before final account deactivation.\n\nStandard Company Policy:\nRefund requests within 30 days of initial signup are honored with full refund upon request if no leads were claimed. Annual renewals require request within 7 business days of billing date.",
+      "screenshots": [
+        {
+          "url": "https://support.brilliantdirectories.com/images/membership-plan-cancellation.png",
+          "alt": "Membership plan cancellation settings screen",
+          "caption": "Cancellation settings tab under Membership Plans showing member self-service cancel toggle.",
+          "ocr_text": "Finance > Membership Plans > Edit Plan > Cancellation Tab | Allow Member Cancellation: YES | Grace Period: 3 Days",
+          "ui_context": "Finance > Membership Plans > Cancellation Settings",
+          "article_id": "5000558422"
+        }
+      ],
+      "last_modified": "2026-10-18T08:00:54+00:00",
+      "content_hash": "hash_5000558422",
+      "is_deleted": false,
+      "source": "help_center"
+    },
+    "5000558430": {
+      "id": "5000558430",
+      "url": "https://support.brilliantdirectories.com/support/solutions/articles/5000558430-lead-system-auto-matching-and-lead-pricing",
+      "title": "Lead System: Auto-Matching, Lead Routing, and Lead Pricing",
+      "category": "Leads",
+      "folder": "Lead Management",
+      "breadcrumbs": [
+        "Solutions",
+        "Leads",
+        "Lead Settings",
+        "Auto-Matching"
+      ],
+      "content_html": "",
+      "content_text": "The Lead Generation system routes visitor inquiries to relevant professionals based on location and specialty.\nNavigation: Dashboard > Leads > Lead Settings.\nMatching Logic:\n1. Auto-Match vs Manual Review:\n   - Auto-Match (Instant): As soon as a visitor submits the 'Get a Quote' or 'Book Appointment' form, the system automatically emails matched members.\n   - Manual Review: Holds leads in 'Pending Admin Review' queue (Leads > Manage Leads) before admin approves and dispatches.\n2. Radius Matching: Set default search radius (e.g. 25 miles / 50 km) from visitor zip/postal code.\n3. Pricing Models:\n   - Free for Premium Members: Membership plans can include free lead access (Finance > Membership Plans > Edit Plan > Leads tab).\n   - Pay-Per-Lead: Charge members $10-$50 to accept and view visitor contact information (requires Stripe gateway).\n4. Direct Inquiries vs General Leads: Direct inquiries submitted on a doctor or business profile page can be set to route exclusively to that member or additionally match competing local members.",
+      "screenshots": [
+        {
+          "url": "https://support.brilliantdirectories.com/images/lead-settings-automatch.png",
+          "alt": "Lead auto-match settings panel",
+          "caption": "Lead Settings control panel showing auto-dispatch toggles and radius match slider.",
+          "ocr_text": "Leads > Lead Settings | Auto-Match Leads: ENABLED | Match Radius: 25 Miles | Max Member Matches: 3",
+          "ui_context": "Leads > Lead Settings tab",
+          "article_id": "5000558430"
+        }
+      ],
+      "last_modified": "2026-10-18T08:00:54+00:00",
+      "content_hash": "hash_5000558430",
+      "is_deleted": false,
+      "source": "help_center"
+    },
+    "5000558445": {
+      "id": "5000558445",
+      "url": "https://support.brilliantdirectories.com/support/solutions/articles/5000558445-member-search-results-and-radius-search-settings",
+      "title": "Member Search Results: Radius Filtering, Sorting, and Map Pins",
+      "category": "Settings",
+      "folder": "Search Settings",
+      "breadcrumbs": [
+        "Solutions",
+        "Settings",
+        "General Settings",
+        "Search Settings"
+      ],
+      "content_html": "",
+      "content_text": "Configuring how visitors search for and discover directory listings.\nNavigation: Dashboard > Settings > General Settings > Search Settings.\nKey Configurations:\n1. Default Sort Order: Top-tier membership plans first, followed by alphabetical or distance.\n2. Radius Distance Unit: Miles or Kilometers (Settings > General Settings > Localization).\n3. Google Maps API Integration: Paste your Google Maps JavaScript and Geocoding API keys under Settings > General Settings > Integrations.\n4. Custom Search Filters: Display specialty dropdowns, accepting new patients checkboxes, language spoken, and price ranges.\nNotice: Adding a new custom search filter (e.g. 'Accepting New Patients') does NOT require custom coding; it is configured via the Form Manager under Toolbox > Form Manager > Listing - Search Results form.",
+      "screenshots": [
+        {
+          "url": "https://support.brilliantdirectories.com/images/search-results-settings.png",
+          "alt": "Search results configuration page with sorting dropdowns",
+          "caption": "Search Settings panel showing default sort order, map pin cluster toggles, and radius bounds.",
+          "ocr_text": "Settings > General Settings > Search Settings | Default Sort: Highest Tier First | Radius Search: Enabled | Google Map Clustering: ON",
+          "ui_context": "Settings > General Settings > Search Settings",
+          "article_id": "5000558445"
+        }
+      ],
+      "last_modified": "2026-10-18T08:00:54+00:00",
+      "content_hash": "hash_5000558445",
+      "is_deleted": false,
+      "source": "help_center"
+    },
+    "5000558460": {
+      "id": "5000558460",
+      "url": "https://support.brilliantdirectories.com/support/solutions/articles/5000558460-webhooks-and-api-integrations",
+      "title": "Developer Hub: Webhooks, REST API, and Zapier Integration",
+      "category": "Developer",
+      "folder": "API & Webhooks",
+      "breadcrumbs": [
+        "Solutions",
+        "Developer Hub",
+        "API",
+        "Webhooks"
+      ],
+      "content_html": "",
+      "content_text": "Integrate Brilliant Directories with external CRM systems (HubSpot, Salesforce, HighLevel) or automate workflows via Webhooks.\nNavigation: Dashboard > Developer Hub > Webhooks / API.\nAvailable Webhook Events:\n1. `member.signup`: Fires when a new user registers or pays for a plan.\n2. `member.updated`: Fires when profile details or status changes.\n3. `member.cancelled`: Fires on cancellation.\n4. `lead.created`: Fires when visitor submits an inquiry.\nPayload Structure: Standard JSON containing member ID, email, name, membership plan ID, and custom form field data.\nAPI Authentication: Generate Bearer API Keys under Developer Hub > API Keys. Standard rate limit is 60 requests/minute per key.",
+      "screenshots": [
+        {
+          "url": "https://support.brilliantdirectories.com/images/webhooks-panel.png",
+          "alt": "Developer webhooks configuration interface",
+          "caption": "Developer Hub Webhooks manager with payload test buttons and event selector.",
+          "ocr_text": "Developer Hub > Webhooks | Add Webhook | Target URL: https://api.crm.com/v1/sync | Events: member.signup, lead.created",
+          "ui_context": "Developer Hub > Webhooks tab",
+          "article_id": "5000558460"
+        }
+      ],
+      "last_modified": "2026-10-18T08:00:54+00:00",
+      "content_hash": "hash_5000558460",
+      "is_deleted": false,
+      "source": "help_center"
+    },
+    "5000558475": {
+      "id": "5000558475",
+      "url": "https://support.brilliantdirectories.com/support/solutions/articles/5000558475-when-to-use-settings-vs-custom-code",
+      "title": "Architecture Guide: When to Use Native Settings vs Custom Code",
+      "category": "Consulting",
+      "folder": "Best Practices",
+      "breadcrumbs": [
+        "Solutions",
+        "Consulting",
+        "Architecture",
+        "Settings vs Custom Code"
+      ],
+      "content_html": "",
+      "content_text": "A key principle of efficient directory development is maximizing native settings before writing custom code.\nBuilt-in Features (NO Custom Code Needed - $0 / Instant):\n- Adding custom profile fields (Form Manager)\n- Customizing search filters & radius searches (Form Manager & Search Settings)\n- Setting up tiered membership plans with recurring Stripe billing (Membership Plans)\n- Lead auto-routing and lead purchase paywalls (Lead Settings)\n- SEO meta tags, sitemaps, and robots.txt (SEO Templates)\n- Social media links and OpenGraph tags (General Settings)\n- Custom menu navigation and footer links (Menu Manager)\n\nWhen Custom Code IS Required (Billable Development Work):\n- Third-party REST API bidirectional syncing (e.g., custom two-way sync with EHR/EMR or external ERP)\n- Custom interactive JavaScript widgets (e.g., custom interactive body map for medical symptom search)\n- Complex bespoke checkout flows outside Stripe/PayPal\n- Deep custom mobile app wrapper (React Native / Flutter) consuming private endpoints.",
+      "screenshots": [
+        {
+          "url": "https://support.brilliantdirectories.com/images/settings-vs-custom-code.png",
+          "alt": "Architectural comparison table: Native Settings vs Custom Development",
+          "caption": "Decision matrix showing 85% of directory client requests are configurable via native admin settings.",
+          "ocr_text": "Architecture Guide | 85% Configurable via Settings | 15% Requires Custom Code | Time Savings: 10x",
+          "ui_context": "Architectural Decision Matrix",
+          "article_id": "5000558475"
+        }
+      ],
+      "last_modified": "2026-10-18T08:00:54+00:00",
+      "content_hash": "hash_5000558475",
+      "is_deleted": false,
+      "source": "help_center"
+    }
+  },
+  "categories": [
+    "Settings",
+    "Emails",
+    "Members",
+    "Finance",
+    "Leads",
+    "Developer",
+    "Consulting"
+  ],
+  "resume_checkpoint": 0
+}
