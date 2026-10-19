@@ -1,0 +1,11 @@
+{
+  "ticket_id": "TICK-6B3F56",
+  "question": "What is the VIP Enterprise SLA refund period?",
+  "context": "",
+  "category": "Enterprise Billing",
+  "status": "RESOLVED",
+  "created_at": "2026-10-19T05:30:13.919099+00:00",
+  "resolved_at": "2026-10-19T05:30:13.922537+00:00",
+  "resolved_by": "Senior Partner Consultant",
+  "expert_answer": "VIP Enterprise SLA refunds are processed within exactly 48 hours via Finance > Concierge."
+}

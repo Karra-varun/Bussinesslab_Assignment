@@ -195,8 +195,8 @@ app.post('/api/inbox/simulate-streak', (req: Request, res: Response) => {
   });
 });
 
-// Serve frontend for all unmatched GET routes
-app.get('*', (_req: Request, res: Response) => {
+// Serve frontend for all unmatched routes (Express 5 compliant)
+app.use((_req: Request, res: Response) => {
   res.sendFile(path.join(publicDir, 'index.html'));
 });
 
