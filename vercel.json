@@ -1,38 +1,37 @@
 {
-  "version": 2,
   "cleanUrls": true,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/task1",
-      "dest": "/task1-knowledge-brain/static/index.html"
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
     },
     {
-      "src": "/task1/(.*)",
-      "dest": "/task1-knowledge-brain/static/$1"
+      "source": "/task1",
+      "destination": "/task1-knowledge-brain/static/index.html"
     },
     {
-      "src": "/task2",
-      "dest": "/task2-inbox-agent/public/index.html"
+      "source": "/task1/:path*",
+      "destination": "/task1-knowledge-brain/static/:path*"
     },
     {
-      "src": "/task2/(.*)",
-      "dest": "/task2-inbox-agent/public/$1"
+      "source": "/task2",
+      "destination": "/task2-inbox-agent/public/index.html"
     },
     {
-      "src": "/task3",
-      "dest": "/task3-meeting-sow/static/index.html"
+      "source": "/task2/:path*",
+      "destination": "/task2-inbox-agent/public/:path*"
     },
     {
-      "src": "/task3/(.*)",
-      "dest": "/task3-meeting-sow/static/$1"
+      "source": "/task3",
+      "destination": "/task3-meeting-sow/static/index.html"
     },
     {
-      "src": "/portal",
-      "dest": "/shared/portal/index.html"
+      "source": "/task3/:path*",
+      "destination": "/task3-meeting-sow/static/:path*"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/portal",
+      "destination": "/index.html"
     }
   ]
 }
